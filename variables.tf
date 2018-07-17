@@ -28,6 +28,11 @@ variable "encrypt_at_rest" {
   default     = false
 }
 
+variable "kms_key_id" {
+  description = "The KMS key id to encrypt the Elasticsearch domain with. Defaults to aws/es service KMS key if not specified"
+  default     = ""
+}
+
 variable "management_iam_roles" {
   description = "List of IAM role ARNs from which to permit management traffic (default ['*']).  Note that a client must match both the IP address and the IAM role patterns in order to be permitted access."
   type        = "list"

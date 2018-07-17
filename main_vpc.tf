@@ -37,9 +37,10 @@ resource "aws_elasticsearch_domain" "es_vpc" {
   elasticsearch_version = "${var.es_version}"
 
   encrypt_at_rest       = {
-    enabled = "${var.encrypt_at_rest}"
+    enabled    = "${var.encrypt_at_rest}"
+    kms_key_id = "${var.kms_key_id}"
   }
-  
+
   cluster_config {
     instance_type            = "${var.instance_type}"
     instance_count           = "${var.instance_count}"
